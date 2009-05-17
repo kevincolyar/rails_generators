@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+  <%% if stage == :staging %>
+    ServerName staging.<%%= application %>
+  <%% else %>
+    ServerName <%%= application %> 
+  <%% end %>
+
+  DirectoryRoot /var/www/<%%= stage %>/<%%= application %>/current/public 
+
+  ErrorLog /var/www/<%%= stage %>/<%%= application %>/current/log/apache_error.log
+  CustomLog /var/www/<%%= stage %>/<%%= application %>/current/log/apache_custom.log combined
+
+  RailsEnv <%%= stage %>
+</VirtualHost>
+
