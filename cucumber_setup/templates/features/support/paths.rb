@@ -10,20 +10,6 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
-    when /new service request page/
-      new_service_request_path
-
-    when /login page/
-      login_url
-      
-    when /logout page/
-      logout_url
-
-    when /new user page/
-      new_user_path
-
-    when /admin page/
-      admin_path 
 
     # Add more mappings here.
     # Here is a more fancy example:
