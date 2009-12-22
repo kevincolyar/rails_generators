@@ -1,5 +1,10 @@
-default: -r features/support -r features/environments/plain.rb -r features/step_definitions features/plain
-selenium: -r features/support -r features/environments/enhanced.rb -r features/step_definitions features/enhanced
-autotest: -r features/support -r features/environments/plain.rb -r features/step_definitions --color --format pretty --tags ~@selenium
-autotest-all: -r features/support -r features/environments/plain.rb -r features/step_definitions --color --format progress --tags ~@selenium
+default: -r features/support -r features/environments/webrat.rb -r features/step_definitions features --tags ~@selenium
+selenium: -r features/support -r features/environments/selenium.rb -r features/step_definitions features --tags @selenium
+autotest: -r features/support -r features/environments/webrat.rb -r features/step_definitions --color --format pretty --tags ~@selenium
+autotest-all: -r features/support -r features/environments/webrat.rb -r features/step_definitions --color --format progress --tags ~@selenium
 
+kmb: -r features/support -r features/environments/webrat.rb -r features/step_definitions features --tags ~@selenium,@kmb
+kmbs: -r features/support -r features/environments/selenium.rb -r features/step_definitions features --tags @selenium,@kmb
+
+ksc: -r features/support -r features/environments/webrat.rb -r features/step_definitions features --tags @ksc
+kscs: -r features/support -r features/environments/selenium.rb -r features/step_definitions features --tags @selenium,@ksc
